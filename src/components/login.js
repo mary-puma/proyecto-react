@@ -1,4 +1,5 @@
 import axios from 'axios'
+import sweetalert from '@sweetalert/with-react';
 function Login() {
 
     const submitHandler = e => {
@@ -23,6 +24,7 @@ function Login() {
 
         axios.post('http://challenge-react.alkemy.org', {email,password})
         .then(res =>{
+            sweetalert('Ingresaste, Bienvenido')
             console.log(res.data);
         })
       
