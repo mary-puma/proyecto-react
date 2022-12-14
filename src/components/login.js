@@ -3,8 +3,23 @@ function Login() {
     const submitHandler = e => {
         e.preventDefault();
         const email = e.target.email.value;
-        console.log(email)
+        const password = e.target.password.value;
+        
+        const regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+        console.log(regexEmail.test(email));
 
+        if(email === '' || password ===''){
+            console.log('Los campos no pueden estar vacios');
+            return;
+        }
+        if(!regexEmail.test(email)){
+            console.log('Debes escribir una direccion de email valida');
+            return;
+        }
+        if(email !== 'mary@test.com' || password !== '1234') {
+            console.log('credenciales invalidas');
+        }
+      
     }
     return (
         <>
@@ -12,7 +27,7 @@ function Login() {
         <form onSubmit={submitHandler}>
             <label>
                 <span>Correo electronico</span><br />
-                <input type="email" name="email"></input>
+                <input type="text" name="email"></input>
                 
             </label>
             <br />
