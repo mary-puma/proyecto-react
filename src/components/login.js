@@ -1,7 +1,10 @@
 import axios from 'axios'
-import sweetalert from '@sweetalert/with-react';
-import {Redirect} from 'react-router-dom';
+//import sweetalert from '@sweetalert/with-react';
+import { useNavigate} from 'react-router-dom';
 function Login() {
+
+    const navigate = useNavigate();
+    console.log(navigate);
 
     const submitHandler = e => {
         e.preventDefault();
@@ -25,12 +28,13 @@ function Login() {
 
         axios.post('http://challenge-react.alkemy.org', {email,password})
         .then(res =>{
-            sweetalert('Ingresaste, Bienvenido');
+            //sweetalert('Ingresaste, Bienvenido');
             console.log(res.data);
             const tokenRecibido = res.data.token; 
             localStorage.setItem('token',tokenRecibido);//seteamos la variable token con el contenido de tokenRecibido
             //localStorage es un almacenamiento local en el navegador y solo guarda string
             //localStorage.getItem('token') devuelve el token que guardamos en el localStorage
+            navigate('/listado')
         })
       
     }
