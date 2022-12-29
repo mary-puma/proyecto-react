@@ -1,12 +1,13 @@
-import {Switch, Route} from 'react-router-dom';
-import Login from './components/login';
+import {Routes, Route} from 'react-router-dom';
+import Login from './components/Login';
+import Listado from './components/Listado';
 function App() {
   return (
     <>
-    <switch>
-      <Route exact path='/' component={Login}></Route>
-      <Route exact path='/listado' component={Listado}></Route>
-    </switch>
+    <Routes>
+      <Route exact path='/' element={<Login />} />
+      <Route  path='/listado' element={<Listado />} />
+    </Routes>
     </>
   );
 }
