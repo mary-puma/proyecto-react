@@ -1,11 +1,9 @@
 import axios from 'axios'
 //import sweetalert from '@sweetalert/with-react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Login() {
 
     const navigate = useNavigate();
-    localStorage.clear();
-    
 
     const submitHandler = e => {
         e.preventDefault();
