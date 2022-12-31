@@ -5,13 +5,13 @@ function Header() {
         <nav>
             <ul>
                 <li>
-                    <link to='/'>Home</link>
+                    <Link to='/'>Home</Link>
                 </li>
                 <li>
-                   <link to='/listado'>listado</link> 
+                   <Link to='/listado'>listado</Link> 
                 </li>
                 <li>
-                    <link to='/contacto'>Contacto</link>
+                    <Link to='/contacto'>Contacto</Link>
                 </li>
             </ul>
         </nav>
