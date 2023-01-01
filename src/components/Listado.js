@@ -42,7 +42,7 @@ function Listado() {
                     movieList.map((oneMovie, idx) => {
                         return (
                             <div className="col-3" key={idx}>
-                                <div className='card'>
+                                <div className='card my-4'>
                                     <img src={oneMovie.Poster} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title">{oneMovie.Title}</h5>
