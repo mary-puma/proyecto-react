@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
-//import { useEffect } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function Listado() {
 
@@ -12,7 +14,22 @@ function Listado() {
         }
     }, [navigate]);*/
 
+
     let token = localStorage.getItem('token');
+
+    const [movieList, setMovieList] = useState([]);
+
+    useEffect(() => {
+        const endpoint = 'https://omdbapi.com/?i=tt3896198&apikey=7a5b7d31&s=batman'
+        axios.get(endpoint)
+            .then(response => {
+                const apiData = response.data;
+                setMovieList(apiData.Search);//Search atributo donde estan las peliculas
+            })
+    }, [setMovieList]);
+
+    console.log(movieList);
+
 
     if (token === null)
         return <Navigate to='/' />
@@ -20,18 +37,25 @@ function Listado() {
 
     return (
         <>
-            <div className='row'>
-                <div className="col-3">
-                    <div className='card'>
-                        <img src="..." className="card-img-top" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <Link href="/" className="btn btn-primary">Go somewhere</Link>
+            <div className="row">
+                {
+                    movieList.map((oneMovie, idx) => {
+                        return (
+                            <div className="col-3" key={idx}>
+                                <div className='card'>
+                                    <img src={oneMovie.Poster} className="card-img-top" alt="..." />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{oneMovie.Title}</h5>
+                                        <p className="card-text">{oneMovie.Type}</p>
+                                        <p className="card-text">{oneMovie.Year}</p>
+                                        <Link href="/" className="btn btn-primary">Go somewhere</Link>
 
-                        </div>
-                    </div>
-                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </>
     )
