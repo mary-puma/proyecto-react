@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Buscador from './Buscador';
 
 function Listado() {
 
@@ -37,6 +38,7 @@ function Listado() {
 
     return (
         <>
+            <Buscador />
             <div className="row">
                 {
                     movieList.map((oneMovie, idx) => {
