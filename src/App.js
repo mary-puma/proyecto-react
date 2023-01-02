@@ -1,5 +1,5 @@
 //librerias
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 //componentes
 import Login from './components/Login';
@@ -13,12 +13,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-    <Header />
-    <Routes>
-      <Route exact path='/' element={<Login />} />
-      <Route  path='/listado' element={<Listado />} />
-    </Routes>
-    <Footer />
+      <Header />
+
+      <div className='container mt-3'>
+        <Routes>
+          <Route exact path='/' element={<Login />} />
+          <Route path='/listado' element={<Listado />} />
+        </Routes>
+
+      </div>
+
+      <Footer />
     </>
   );
 }
