@@ -9,11 +9,13 @@ import Footer from './components/Footer';
 
 //estilos
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Buscador from './components/Buscador';
 
 function App() {
   return (
     <>
       <Header />
+      <Buscador />
 
       <div className='container mt-3'>
         <Routes>
