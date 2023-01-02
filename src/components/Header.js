@@ -1,20 +1,20 @@
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Header() {
     return (
         <header>
-        <nav>
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                   <Link to='/listado'>listado</Link> 
-                </li>
-                <li>
-                    <Link to='/contacto'>Contacto</Link>
-                </li>
-            </ul>
-        </nav>
+            <nav>
+                <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to={'/'}>Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white" to={'/listado'}>Listado</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link text-white ">Disabled</Link>
+                    </li>
+                </ul>
+            </nav>
         </header>
     )
 
