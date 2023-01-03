@@ -1,7 +1,7 @@
 import axios from 'axios'
 //import sweetalert from '@sweetalert/with-react';
 import { useNavigate } from 'react-router-dom';
-import '../css/login.css';
+
 function Login() {
 
     const navigate = useNavigate();
@@ -42,25 +42,22 @@ function Login() {
     }
     return (
         <>
-            <form >
-                
+            <form className='pt-5' onSubmit={submitHandler}>
                 <div className="mb-3 d-flex justify-content-center">
                     <label className="col-sm-4 col-form-label ">Email address
-                    <input type="email" className="form-control" aria-describedby="emailHelp"  />
+                        <input type="email" className="form-control" aria-describedby="emailHelp" />
                     </label>
-                    
-                       
+
                 </div>
                 <div className="mb-3 d-flex justify-content-center">
                     <label className="col-sm-4 col-form-label">Password
-                    <input type="password" className="form-control" />
+                        <input type="password" className="form-control" />
                     </label>
                 </div>
                 <div className="mb-3 d-flex justify-content-center">
-                <button type="submit" className="btn btn-primary ">Ingresar</button>
+                    <button type="submit" className="btn btn-primary ">Ingresar</button>
                 </div>
-               
-               
+
             </form>
         </>
     )
