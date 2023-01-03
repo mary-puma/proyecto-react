@@ -18,6 +18,7 @@ function Buscador() {
                 html: '<h3>Escribir más de 3 caracteres</h3>'
             })
         } else {
+            e.currentTarget.keyword.value = '';
             navigate(`/listado?title=${keyword}`);//redireccionamos a listado con la palabra clave que colocamos en el buscador
             
         }
