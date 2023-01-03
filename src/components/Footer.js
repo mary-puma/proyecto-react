@@ -1,16 +1,28 @@
+import { Link } from 'react-router-dom';
+import '../css/footer.css'
 function Footer() {
 
     return (
-        <footer>
+        /*<footer>
             <nav>
-                <ul>
-                    <li> <a href="http://intagram.com" rel="noopenernoreferrer">IG</a></li>
+                <ul className='container'>
+                    <li className='item'> <a href="http://intagram.com" >IG</a></li>
+                    <li  className='item'> Copyright Alkemy challenge </li>
                 </ul>
             </nav>
-            <p>
-                Copyright Alkemy challenge
-            </p>
-        </footer>
+         
+        </footer>*/
+        <div className="container-footer">
+            <footer className="position-relative start-0 bottom-0 end-0">
+                <ul className="nav justify-content-center border-bottom pb-3 mb-3 mx-5">
+                    <li className="nav-item"><Link to={'/'} className="nav-link px-2 text-white">Home</Link></li>
+                    <li className="nav-item"><Link to={'/listado'} className="nav-link px-2 text-white">Listado</Link></li>
+                    <li className="nav-item"><Link to={'/about'} className="nav-link px-2 text-white">About</Link></li>
+                    
+                </ul>
+                <p className="text-center text-white">&copy; 2022 Company, Inc</p>
+            </footer>
+        </div>
     )
 }
 export default Footer;
