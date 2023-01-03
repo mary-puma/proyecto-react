@@ -45,13 +45,13 @@ function Login() {
             <form className='pt-5' onSubmit={submitHandler}>
                 <div className="mb-3 d-flex justify-content-center">
                     <label className="col-sm-4 col-form-label ">Email address
-                        <input type="email" className="form-control" aria-describedby="emailHelp" />
+                        <input type="email" className="form-control" aria-describedby="emailHelp" name='email' />
                     </label>
 
                 </div>
                 <div className="mb-3 d-flex justify-content-center">
                     <label className="col-sm-4 col-form-label">Password
-                        <input type="password" className="form-control" />
+                        <input type="password" className="form-control" name='password' />
                     </label>
                 </div>
                 <div className="mb-3 d-flex justify-content-center">
