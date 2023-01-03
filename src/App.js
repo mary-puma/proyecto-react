@@ -9,24 +9,22 @@ import Footer from './components/Footer';
 
 //estilos
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './css/footer.css'
 
 function App() {
   return (
-    <>
+    <div className='body'>
       <Header />
-      
-
       <div className='container mt-3'>
-        <Routes>
-          <Route exact path='/' element={<Login />} />
-          <Route path='/listado' element={<Listado />} />
-        </Routes>
-
+      <Routes>
+        <Route exact path='/' element={<Login />} />
+        <Route path='/listado' element={<Listado />} />
+      </Routes>
       </div>
 
       <Footer />
-    </>
+
+    </div>
   );
 }
 
