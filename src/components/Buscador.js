@@ -29,7 +29,7 @@ function Buscador() {
         <form onSubmit={submitHandler}>
             <div className="d-flex justify-content-center" >
                 <label className="mb-0 mx-2 col-sm-4 col-form-label">
-                    <input type="text" className="form-control" name="keyword" />
+                    <input type="text" className="form-control" name="keyword" placeholder="Escribir una palabra clave" />
                 </label>
                 <button type="submit" className="btn btn-primary mb-1 mt-1" >Buscar</button>
             </div>
