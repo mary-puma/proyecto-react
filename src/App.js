@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Listado from './components/Listado';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Favoritos from './components/Favoritos';
 
 //estilos
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -66,6 +67,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Login />} />
           <Route path='/listado' element={<Listado addOrRemoveFromFav={addOrRemoveFromFav} />} />
+          <Route path='/favoritos' element={<Favoritos />} />
         </Routes>
       </div>
 
