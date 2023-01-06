@@ -13,9 +13,24 @@ import './css/footer.css'
 
 function App() {
 
-  const addOrRemoveFromFav=()=> {
-    console.log("ok, funciono");
-    
+  const addOrRemoveFromFav = e => {
+
+    const btn = e.currentTarget;//capturamos el boton
+    const parent = btn.parentElement;//capturamos el padre donde esta el boton
+    const imgUrl = parent.querySelector('img').getAttribute('src');
+    const title = parent.querySelector('h5').innerText;
+    const overview = parent.querySelector('p').innerText;
+    const movieData = {
+      imgUrl,
+      title, 
+      overview
+    }
+
+    //console.log(imgUrl);
+    //console.log(title);
+    console.log(movieData);
+
+
   }
   return (
     <div className='body'>
