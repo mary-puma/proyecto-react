@@ -23,13 +23,13 @@ function App() {
     const movieData = {
       imgUrl,
       title, 
-      overview
+      overview,
+      id: btn.dataset.movieId
     }
 
     //console.log(imgUrl);
-    //console.log(title);
+    console.log(btn.dataset);
     console.log(movieData);
-
 
   }
   return (

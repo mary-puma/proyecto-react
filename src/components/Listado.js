@@ -62,7 +62,8 @@ function Listado({addOrRemoveFromFav}) {
                             <div className="col-3" key={idx}>
                                 <div className='card my-4'>
                                     <img src={oneMovie.Poster} className="card-img-top" alt="..." />
-                                    <button className='favourite-btn' onClick={addOrRemoveFromFav}>❤️
+                                    <button className='favourite-btn' onClick={addOrRemoveFromFav} data-movie-id = {oneMovie.imdbID}>
+                                        ❤️
                                     </button>
                                     <div className="card-body">
                                         <h5 className="card-title">{oneMovie.Title}</h5>
