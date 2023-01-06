@@ -11,7 +11,7 @@ function Header() {
                         <Link className="nav-link text-white" to={'/listado'}>Listado</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link text-white ">Disabled</Link>
+                        <Link className="nav-link text-white " to={'/favoritos'}>Favoritos</Link>
                     </li>
                 </ul>
             </nav>
