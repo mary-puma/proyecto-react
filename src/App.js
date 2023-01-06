@@ -12,13 +12,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/footer.css'
 
 function App() {
+
+  const addOrRemoveFromFav=()=> {
+    console.log("ok, funciono");
+    
+  }
   return (
     <div className='body'>
       <Header />
       <div className='container mt-3'>
       <Routes>
         <Route exact path='/' element={<Login />} />
-        <Route path='/listado' element={<Listado />} />
+        <Route path='/listado' element={<Listado addOrRemoveFromFav={addOrRemoveFromFav} />}  />
       </Routes>
       </div>
 

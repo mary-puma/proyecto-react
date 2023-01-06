@@ -3,8 +3,10 @@ import { useNavigate, Link, Navigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Buscador from './Buscador';
+import '../css/app.css'
 
-function Listado() {
+function Listado({addOrRemoveFromFav}) {
+    console.log(addOrRemoveFromFav)
 
     /*const navigate = useNavigate();
     useEffect(() => {
@@ -60,6 +62,8 @@ function Listado() {
                             <div className="col-3" key={idx}>
                                 <div className='card my-4'>
                                     <img src={oneMovie.Poster} className="card-img-top" alt="..." />
+                                    <button className='favourite-btn' onClick={addOrRemoveFromFav}>❤️
+                                    </button>
                                     <div className="card-body">
                                         <h5 className="card-title">{oneMovie.Title}</h5>
                                         <p className="card-text">{oneMovie.Type}</p>
