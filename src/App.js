@@ -1,5 +1,6 @@
 //librerias
 import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from "react"
 
 //componentes
 import Login from './components/Login';
@@ -13,6 +14,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/footer.css'
 
 function App() {
+
+  const [favorites, setFavorites] = useState([]); //cuando se actualice el estado automaticamente lo va a compartir a favoritos
+    useEffect(()=>{
+        const favsInLocal = localStorage.getItem('favs');
+
+        if(favsInLocal !== null){
+            const favsArray = JSON.parse(favsInLocal);
+            console.log(favsArray);
+            setFavorites(favsArray);
+        }
+    },[])
 
 
   const addOrRemoveFromFav = e => {
@@ -40,19 +52,24 @@ function App() {
     }
 
     let moviesIsInArray = tempMoviesInFav.find(oneMovie => {
-      return oneMovie.id === movieData.id
+      return oneMovie.id === movieData.id // si la pelicula que quiero add a favoritos no esta en la seccion de favoritos(lista del localstorage) devuelve null, y si esta devuelve el objeto
     });
 
     if (!moviesIsInArray) {
       tempMoviesInFav.push(movieData);
       localStorage.setItem('favs', JSON.stringify(tempMoviesInFav));
+      setFavorites(tempMoviesInFav);
       console.log('se agrego la pelicula');
+
     } else {
+
       let moviesLeft = tempMoviesInFav.filter(oneMovie => {
         return oneMovie.id !== movieData.id
       });
       localStorage.setItem('favs', JSON.stringify(moviesLeft));
+      setFavorites(moviesLeft);
       console.log('se elimino la pelicula');
+
     }
 
     //console.log(imgUrl);
@@ -67,7 +84,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Login />} />
           <Route path='/listado' element={<Listado addOrRemoveFromFav={addOrRemoveFromFav} />} />
-          <Route path='/favoritos' element={<Favoritos />} />
+          <Route path='/favoritos' element={<Favoritos favorites={favorites} addOrRemoveFromFav={addOrRemoveFromFav} />} />
         </Routes>
       </div>
 
