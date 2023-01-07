@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 function Favoritos({favorites,addOrRemoveFromFav}) {
 
     /*const [favorites, setFavorites] = useState([]);
@@ -11,6 +11,9 @@ function Favoritos({favorites,addOrRemoveFromFav}) {
             setFavorites(favsArray);
         }
     },[])*/
+    let token = localStorage.getItem('token');
+    if (token === null)
+        return <Navigate to='/' />
     return (
         <>
             <h5>Seccion Favoritos</h5>
