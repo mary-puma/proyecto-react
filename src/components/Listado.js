@@ -69,7 +69,7 @@ function Listado({addOrRemoveFromFav}) {
                                         <h5 className="card-title">{oneMovie.Title}</h5>
                                         <p className="card-text">{oneMovie.Type}</p>
                                         <p className="card-text">{oneMovie.Year}</p>
-                                        <Link href="/" className="btn btn-primary">Go somewhere</Link>
+                                        <Link href="/" className="btn btn-primary">Detalle</Link>
 
                                     </div>
                                 </div>
