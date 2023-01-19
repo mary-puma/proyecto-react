@@ -1,5 +1,5 @@
 import { Link, Navigate } from "react-router-dom";
-function Favoritos({favorites,addOrRemoveFromFav}) {
+function Favoritos({ favorites, addOrRemoveFromFav }) {
 
     /*const [favorites, setFavorites] = useState([]);
     useEffect(()=>{

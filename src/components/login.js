@@ -1,5 +1,5 @@
 import axios from 'axios'
-//import sweetalert from '@sweetalert/with-react';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -15,21 +15,21 @@ function Login() {
         console.log(regexEmail.test(email));
 
         if (email === '' || password === '') {
-            console.log('Los campos no pueden estar vacios');
+            Swal.fire('Los campos no pueden estar vacios')
             return;
         }
         if (!regexEmail.test(email)) {
-            console.log('Debes escribir una direccion de email valida');
+            Swal.fire('Debes escribir una direccion de email valida')
             return;
         }
         if (email !== 'challenge@alkemy.org' || password !== 'react') {
-            console.log('credenciales invalidas');
+            Swal.fire('Credenciales invalidas')
             return;
         }
 
         axios.post('http://challenge-react.alkemy.org', { email, password })
             .then(res => {
-                //sweetalert('Ingresaste, Bienvenido');
+                Swal.fire('Ingresaste, Bienvenido');
                 //console.log(res.data);
 
                 const tokenRecibido = res.data.token;
@@ -44,7 +44,7 @@ function Login() {
         <>
             <form className='pt-5' onSubmit={submitHandler}>
                 <div className="mb-3 d-flex justify-content-center">
-                    <label className="col-sm-4 col-form-label ">Email address
+                    <label className="col-sm-4 col-form-label ">Email
                         <input type="email" className="form-control" aria-describedby="emailHelp" name='email' />
                     </label>
 

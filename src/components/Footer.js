@@ -17,10 +17,10 @@ function Footer() {
                 <ul className="nav justify-content-center border-bottom pb-3 mb-3 mx-5">
                     <li className="nav-item"><Link to={'/'} className="nav-link px-2 text-white">Home</Link></li>
                     <li className="nav-item"><Link to={'/listado'} className="nav-link px-2 text-white">Listado</Link></li>
-                    <li className="nav-item"><Link to={'/about'} className="nav-link px-2 text-white">About</Link></li>
-                    
+                    <li className="nav-item"><Link to={'/favoritos'} className="nav-link px-2 text-white">Favoritos</Link></li>
+
                 </ul>
-                <p className="text-center text-white">&copy; 2022 Company, Inc</p>
+                <p className="text-center text-white">&copy; 2023 Mary Puma</p>
             </footer>
         </div>
     )
