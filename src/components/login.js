@@ -34,8 +34,6 @@ function Login() {
 
                 const tokenRecibido = res.data.token;
                 localStorage.setItem('token', tokenRecibido);//seteamos la variable token con el contenido de tokenRecibido
-                //localStorage es un almacenamiento local en el navegador y solo guarda string
-                //localStorage.getItem('token') devuelve el token que guardamos en el localStorage
                 navigate('/listado')
             })
 

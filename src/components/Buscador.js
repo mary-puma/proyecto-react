@@ -4,8 +4,8 @@ function Buscador() {
 
     const navigate = useNavigate();
     const submitHandler = e => {
-        e.preventDefault(); // para que no reenderice la pagina al hacer click en el boton buscar
-        const keyword = e.currentTarget.keyword.value.trim(); //capturamos el input de buscador, trim() no contabiliza los espacios iniciales ni finales
+        e.preventDefault(); 
+        const keyword = e.currentTarget.keyword.value.trim();
 
         if (keyword.length === 0) {
             sweetalert2.fire({
@@ -18,7 +18,7 @@ function Buscador() {
             })
         } else {
             //e.currentTarget.keyword.value = '';
-            navigate(`/listado?keyword=${keyword}`);//redireccionamos a listado con la palabra clave que colocamos en el buscador
+            navigate(`/listado?keyword=${keyword}`);
 
 
         }

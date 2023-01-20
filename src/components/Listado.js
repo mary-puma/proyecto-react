@@ -6,18 +6,7 @@ import Buscador from './Buscador';
 import '../css/app.css'
 
 function Listado({ addOrRemoveFromFav }) {
-    console.log(addOrRemoveFromFav)
-
-    /*const navigate = useNavigate();
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        console.log(token);
-        if (token === null) {
-            navigate('/');
-        }
-    }, [navigate]);*/
-
-
+    
     let token = localStorage.getItem('token');
 
     const [movieList, setMovieList] = useState([]);
