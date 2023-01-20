@@ -3,15 +3,7 @@ import '../css/footer.css'
 function Footer() {
 
     return (
-        /*<footer>
-            <nav>
-                <ul className='container'>
-                    <li className='item'> <a href="http://intagram.com" >IG</a></li>
-                    <li  className='item'> Copyright Alkemy challenge </li>
-                </ul>
-            </nav>
-         
-        </footer>*/
+       
         <div className="container-footer">
             <footer className="position-relative start-0 bottom-0 end-0">
                 <ul className="nav justify-content-center border-bottom pb-3 mb-3 mx-5">
