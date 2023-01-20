@@ -22,7 +22,7 @@ function Login() {
             Swal.fire('Debes escribir una direccion de email valida')
             return;
         }
-        if (email !== 'challenge@alkemy.org' || password !== 'react') {
+        if (email !== 'challenge@alkemy.org' || password !== process.env.REACT_APP_PASSWORD) {
             Swal.fire('Credenciales invalidas')
             return;
         }
