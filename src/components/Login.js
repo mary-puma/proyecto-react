@@ -27,7 +27,13 @@ function Login() {
             return;
         }
 
-        axios.post('http://challenge-react.alkemy.org', { email, password })
+        axios.post('http://challenge-react.alkemy.org', { email, password },
+            {
+                headers: {
+
+                    'Content-Type': 'application/json'
+                }
+            })
             .then(res => {
                 Swal.fire('Ingresaste, Bienvenido');
                 //console.log(res.data);
