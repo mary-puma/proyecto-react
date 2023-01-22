@@ -31,7 +31,7 @@ function Login() {
             {
                 headers: {
                     "Accept":"application/json, text/plain, */*",
-
+                    'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/json'
                 }
             })
