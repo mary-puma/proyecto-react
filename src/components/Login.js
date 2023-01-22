@@ -30,6 +30,7 @@ function Login() {
         axios.post('http://challenge-react.alkemy.org', { email, password },
             {
                 headers: {
+                    "Accept":"application/json, text/plain, */*",
 
                     'Content-Type': 'application/json'
                 }
