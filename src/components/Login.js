@@ -22,19 +22,12 @@ function Login() {
             Swal.fire('Debes escribir una direccion de email valida')
             return;
         }
-        if (email !== 'challenge@alkemy.org' || password !== process.env.REACT_APP_PASSWORD) {
+        if (email !== 'challenge@alkemy.org' || password !== 'react') {
             Swal.fire('Credenciales invalidas')
             return;
         }
 
-        axios.post('http://challenge-react.alkemy.org', { email, password },
-            {
-                headers: {
-                    "Accept":"application/json, text/plain, */*",
-                    'Access-Control-Allow-Origin': '*',
-                    'Content-Type': 'application/json'
-                }
-            })
+        axios.post('http://challenge-react.alkemy.org', { email, password })
             .then(res => {
                 Swal.fire('Ingresaste, Bienvenido');
                 //console.log(res.data);
