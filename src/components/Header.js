@@ -1,5 +1,9 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../auth/context/AuthContext';
 function Header() {
+
+    const {handlerLogout,login} = useContext(AuthContext);
     return (
         <header>
             <nav>
@@ -12,6 +16,13 @@ function Header() {
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link text-white " to={'/favoritos'}>Favoritos</Link>
+                    </li>
+                    <li className="nav-item">
+                        <button 
+                        onClick={handlerLogout}
+                        className='btn btn-outline-success'>
+                        Logout
+                        </button>
                     </li>
                 </ul>
             </nav>

@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, Navigate, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Buscador from './Buscador';
 import '../css/app.css'
+import { MoviesContext } from '../context/MoviesContext';
 
-function Listado({ addOrRemoveFromFav }) {
+export const Listado = () => {
+    const { addOrRemoveFromFav } = useContext(MoviesContext);
     
-    let token = localStorage.getItem('token');
+    //let token = localStorage.getItem('token');
+    console.log("LISTADO")
 
     const [movieList, setMovieList] = useState([]);
     let [searchParams, setSearchParams] = useSearchParams();
@@ -37,8 +40,8 @@ function Listado({ addOrRemoveFromFav }) {
     console.log(movieList);
 
 
-    if (token === null)
-        return <Navigate to='/' />
+    /*if (token === null)
+        return <Navigate to='/' />*/
 
 
     return (
@@ -68,6 +71,5 @@ function Listado({ addOrRemoveFromFav }) {
                 }
             </div>
         </>
-    )
+    );
 }
-export default Listado;

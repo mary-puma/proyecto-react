@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
-    const navigate = useNavigate();
+   /* const navigate = useNavigate();
 
     const submitHandler = e => {
         e.preventDefault();
@@ -22,15 +22,11 @@ function Login() {
             Swal.fire('Debes escribir una direccion de email valida')
             return;
         }
-        if (email !== 'challenge@alkemy.org' || password !== 'react') {
-            Swal.fire('Credenciales invalidas')
-            return;
-        }
-
-        axios.post('http://challenge-react.alkemy.org', { email, password })
+        
+        axios.post('http://localhost:8080/auth/login', { email, password })
             .then(res => {
                 Swal.fire('Ingresaste, Bienvenido');
-                //console.log(res.data);
+                console.log(res.data);
 
                 const tokenRecibido = res.data.token;
                 localStorage.setItem('token', tokenRecibido);//seteamos la variable token con el contenido de tokenRecibido
@@ -58,7 +54,7 @@ function Login() {
 
             </form>
         </>
-    )
+    )*/
 }
 
 export default Login;
