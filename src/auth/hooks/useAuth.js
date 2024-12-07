@@ -19,7 +19,7 @@ export const useAuth = () => {
       const response = await loginUser({ username, password });
       console.log(response);
       const token = response.data.jwt;
-      console.log(token);
+      console.log("prueba token: ", token);
       const claims = JSON.parse(window.atob(token.split(".")[1])); //decodificacion del token
       console.log(claims);
       const user = { username: claims.sub };
