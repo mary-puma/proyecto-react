@@ -18,8 +18,8 @@ function Header() {
       pageTitle = "Mi Aplicación de Películas";
   }
   return (
-    <header className="bg-primary py-3 text-white">
-      <h1 className="h4 mb-0">{pageTitle}</h1>
+    <header>
+      <h1 className="h4 mb-0 text-white">{pageTitle}</h1>
       <nav>
         <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
           <li className="nav-item">
