@@ -19,8 +19,8 @@ function Header() {
   }
   return (
     <header className="bg-primary">
-      <div className="container text-center py-3">
-        <h1 className="h4 text-white">{pageTitle}</h1>
+      <div className="d-flex align-items-center justify-content-between px-3 py-2">
+        <h1 className="h4 text-white mb-0">{pageTitle}</h1>
         <nav>
           <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
             <li className="nav-item">
