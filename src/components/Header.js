@@ -1,10 +1,25 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/context/AuthContext";
 function Header() {
   const { handlerLogout, login } = useContext(AuthContext);
+  const location = useLocation();
+
+  // Definir título dinámico según la ruta
+  let pageTitle = "";
+  switch (location.pathname) {
+    case "/listado":
+      pageTitle = "Listado de Películas";
+      break;
+    case "/favoritos":
+      pageTitle = "Sección de Favoritos";
+      break;
+    default:
+      pageTitle = "Mi Aplicación de Películas";
+  }
   return (
-    <header>
+    <header className="bg-primary py-3 text-white">
+      <h1 className="h4 mb-0">{pageTitle}</h1>
       <nav>
         <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
           <li className="nav-item">
