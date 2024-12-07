@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 function Buscador() {
+  const navigate = useNavigate(); // Hook para redirigir
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const keyword = e.currentTarget.keyword.value.trim();
@@ -17,25 +19,23 @@ function Buscador() {
       });
     } else {
       try {
-        // Solicitud a la API con Axios (reemplaza con tu endpoint real)
+        // Solicitud a la API con Axios
         const response = await axios.get(
-          `https://api.example.com/movies?search=${keyword}`
+          `https://omdbapi.com/?apikey=7a5b7d31&s=${keyword}`
         );
 
-        // Si hay resultados, muestra el mensaje adecuado
         if (response.data.results.length > 0) {
-          sweetalert2.fire({
-            html: `<h3>Se encontraron ${response.data.results.length} películas que coinciden con "${keyword}".</h3>`,
-          });
+          // Si hay resultados, redirige a la página de listado
+          navigate(`/listado?keyword=${keyword}`);
         } else {
-          // Si no hay resultados en los datos de la API
+          // Si no hay resultados
           sweetalert2.fire({
             html: `<h3>No se encontraron películas. Por favor, intenta con otra búsqueda.</h3>`,
           });
         }
       } catch (error) {
-        // Manejo de errores HTTP con Axios
         if (error.response && error.response.status === 404) {
+          // Si la API devuelve un 404
           sweetalert2.fire({
             html: `<h3>No se encontró la película. Por favor, intenta con otra búsqueda.</h3>`,
           });
