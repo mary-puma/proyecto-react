@@ -23,7 +23,6 @@ export const useAuth = () => {
       const claims = JSON.parse(window.atob(token.split(".")[1])); //decodificacion del token
       console.log(claims);
       const user = { username: claims.sub };
-      console.log("Token en sessionStorage:", sessionStorage.getItem("token"));
 
       dispatch({
         type: "login",
@@ -39,7 +38,7 @@ export const useAuth = () => {
       );
       console.log("nnn");
       sessionStorage.setItem("token", `Bearer ${token}`);
-      console.log("hola");
+      console.log("Token en sessionStorage:", sessionStorage.getItem("token"));
       navigate("/listado");
       console.log("hola");
     } catch (error) {
