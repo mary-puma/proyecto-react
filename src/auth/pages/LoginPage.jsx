@@ -44,6 +44,10 @@ export const LoginPage = () => {
       //navigate("/home"); // O la página a la que quieras redirigir
     }, 3000); // Puedes ajustar este tiempo dependiendo de lo que tarde el login real
 
+    // Función para redirigir a la página de registro
+    const handleRegisterRedirect = () => {
+      navigate("/register");
+    };
     console.log("loginpagehandler");
   };
   return (
