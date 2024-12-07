@@ -11,11 +11,11 @@ const initialLoginForm = {
 };
 
 export const LoginPage = () => {
-  console.log("loginPage");
-  const navigate = useNavigate(); // Inicializa el hook para la redirección
+  const navigate = useNavigate();
   const { handlerLogin } = useContext(AuthContext);
 
   const [loginForm, setLoginForm] = useState(initialLoginForm);
+  const [isLoading, setIsLoading] = useState(false); // Estado para controlar la carga
   const { username, password } = loginForm;
 
   const onInputChange = ({ target }) => {
@@ -30,18 +30,21 @@ export const LoginPage = () => {
     e.preventDefault();
 
     if (username === "" || password === "") {
-      Swal.fire("Los campos no pueden estar vacios");
+      Swal.fire("Los campos no pueden estar vacíos");
       return;
     }
+
+    setIsLoading(true); // Activar el estado de carga
     handlerLogin({ username, password });
+
+    // Simulación de un retraso en la respuesta para ver el mensaje de carga
+    setTimeout(() => {
+      setIsLoading(false); // Desactivar el estado de carga
+      setLoginForm(initialLoginForm); // Resetear el formulario
+      //navigate("/home"); // O la página a la que quieras redirigir
+    }, 3000); // Puedes ajustar este tiempo dependiendo de lo que tarde el login real
+
     console.log("loginpagehandler");
-
-    setLoginForm(initialLoginForm);
-  };
-
-  // Función para redirigir a la página de registro
-  const handleRegisterRedirect = () => {
-    navigate("/register"); // Ruta donde está tu página de registro
   };
   return (
     <>
