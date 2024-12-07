@@ -2,14 +2,11 @@ import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { MoviesContext } from "../context/MoviesContext";
 import { useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext"; // Asegúrate de importar el contexto
+
 function Favoritos() {
   const { favorites, addOrRemoveFromFav } = useContext(MoviesContext);
   console.log("favoritos");
-
-  /*let token = sessionStorage.getItem("token");
-  useEffect(() => {
-    console.log("Token en favoritos:", sessionStorage.getItem("token"));
-  }, []);*/
 
   const [token, setToken] = useState(null);
 
