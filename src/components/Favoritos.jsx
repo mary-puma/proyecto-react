@@ -8,7 +8,7 @@ function Favoritos() {
 
   let token = localStorage.getItem("token");
   useEffect(() => {
-    console.log("Token en localStorage:", localStorage.getItem("token"));
+    console.log("Token en favoritos:", sessionStorage.getItem("token"));
   }, []);
 
   console.log("token" + token);
