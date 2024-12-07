@@ -27,6 +27,7 @@ export const LoginPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     if (username === "" || password === "") {
       Swal.fire("Los campos no pueden estar vacíos");
       return;
@@ -40,16 +41,18 @@ export const LoginPage = () => {
       setIsLoading(false); // Detiene la carga si hay un error
     }
   };
-  useEffect(() => {
-    if (login.isAuth) {
-      setIsLoading(false); // Detiene el mensaje de carga después de redirigir
-    }
-  }, [login.isAuth]);
+
+  // Ya no es necesario este useEffect ya que la redirección está manejada por el hook `useAuth`
+  // useEffect(() => {
+  //   if (login.isAuth) {
+  //     setIsLoading(false); // Detiene el mensaje de carga después de redirigir
+  //   }
+  // }, [login.isAuth]);
 
   const handleRegisterRedirect = () => {
     navigate("/register");
   };
-  console.log("loginpagehandler");
+
   return (
     <>
       <form className="pt-5 flex-grow-1" onSubmit={submitHandler}>
