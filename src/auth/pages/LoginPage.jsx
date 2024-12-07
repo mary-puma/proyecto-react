@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 
 const initialLoginForm = {
