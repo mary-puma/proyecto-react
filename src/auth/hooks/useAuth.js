@@ -23,6 +23,7 @@ export const useAuth = () => {
       const claims = JSON.parse(window.atob(token.split(".")[1])); //decodificacion del token
       console.log(claims);
       const user = { username: claims.sub };
+      console.log("Token en sessionStorage:", sessionStorage.getItem("token"));
 
       dispatch({
         type: "login",
