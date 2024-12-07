@@ -4,6 +4,8 @@ import { AuthContext } from "../context/AuthContext";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 
 const initialLoginForm = {
   username: "",
@@ -11,41 +13,39 @@ const initialLoginForm = {
 };
 
 export const LoginPage = () => {
+  const { handlerLogin, login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const { handlerLogin } = useContext(AuthContext);
-
-  const [loginForm, setLoginForm] = useState(initialLoginForm);
-  const [isLoading, setIsLoading] = useState(false); // Estado para controlar la carga
-  const { username, password } = loginForm;
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    setLoginForm({
-      ...loginForm,
-      [name]: value,
-    });
+    if (name === "username") setUsername(value);
+    if (name === "password") setPassword(value);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-
     if (username === "" || password === "") {
       Swal.fire("Los campos no pueden estar vacíos");
       return;
     }
 
-    setIsLoading(true); // Activar el estado de carga
-    handlerLogin({ username, password });
+    setIsLoading(true); // Muestra el mensaje de carga
 
-    // Simulación de un retraso en la respuesta para ver el mensaje de carga
-    setTimeout(() => {
-      setIsLoading(false); // Desactivar el estado de carga
-      setLoginForm(initialLoginForm); // Resetear el formulario
-      //navigate("/home"); // O la página a la que quieras redirigir
-    }, 3000); // Puedes ajustar este tiempo dependiendo de lo que tarde el login real
-
-    // Función para redirigir a la página de registro
+    try {
+      await handlerLogin({ username, password });
+    } catch (error) {
+      setIsLoading(false); // Detiene la carga si hay un error
+    }
   };
+  useEffect(() => {
+    if (login.isAuth) {
+      setIsLoading(false); // Detiene el mensaje de carga después de redirigir
+    }
+  }, [login.isAuth]);
+
   const handleRegisterRedirect = () => {
     navigate("/register");
   };
