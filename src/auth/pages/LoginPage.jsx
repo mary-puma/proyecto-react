@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const initialLoginForm = {
   username: "",
@@ -11,6 +12,7 @@ const initialLoginForm = {
 
 export const LoginPage = () => {
   console.log("loginPage");
+  const navigate = useNavigate(); // Inicializa el hook para la redirección
   const { handlerLogin } = useContext(AuthContext);
 
   const [loginForm, setLoginForm] = useState(initialLoginForm);
@@ -35,6 +37,11 @@ export const LoginPage = () => {
     console.log("loginpagehandler");
 
     setLoginForm(initialLoginForm);
+  };
+
+  // Función para redirigir a la página de registro
+  const handleRegisterRedirect = () => {
+    navigate("/register"); // Ruta donde está tu página de registro
   };
   return (
     <>
@@ -67,6 +74,14 @@ export const LoginPage = () => {
         <div className="mb-3 d-flex justify-content-center">
           <button type="submit" className="btn btn-primary ">
             Ingresar
+          </button>
+          {/* Botón de registrarse */}
+          <button
+            type="button"
+            className="btn btn-secondary mx-2"
+            onClick={handleRegisterRedirect}
+          >
+            Registrarse
           </button>
         </div>
       </form>

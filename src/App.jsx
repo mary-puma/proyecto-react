@@ -8,10 +8,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/footer.css";
 import { LoginPage } from "./auth/pages/LoginPage";
-import Header from "./components/Header";
+import { RegisterPage } from "./components/RegisterPage";
 import { UserRoutes } from "./routes/UserRoutes";
 import { AuthContext } from "./auth/context/AuthContext";
 import { useContext } from "react";
+import { UserProvider } from "./auth/context/UserProvider";
 
 export const App = () => {
   const { login } = useContext(AuthContext);
@@ -20,17 +21,20 @@ export const App = () => {
 
   return (
     <>
-      <Routes>
-        {login.isAuth ? (
-          <Route path="/*" element={<UserRoutes />} />
-        ) : (
-          <>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="*" element={<Navigate to="/login" />} />{" "}
-            {/* Redirigir si no está autenticado */}
-          </>
-        )}
-      </Routes>
+      <UserProvider>
+        <Routes>
+          {login.isAuth ? (
+            <Route path="/*" element={<UserRoutes />} />
+          ) : (
+            <>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="*" element={<Navigate to="/login" />} />{" "}
+              {/* Redirigir si no está autenticado */}
+            </>
+          )}
+        </Routes>
+      </UserProvider>
     </>
   );
 };
