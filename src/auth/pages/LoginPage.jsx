@@ -45,11 +45,11 @@ export const LoginPage = () => {
     }, 3000); // Puedes ajustar este tiempo dependiendo de lo que tarde el login real
 
     // Función para redirigir a la página de registro
-    const handleRegisterRedirect = () => {
-      navigate("/register");
-    };
-    console.log("loginpagehandler");
   };
+  const handleRegisterRedirect = () => {
+    navigate("/register");
+  };
+  console.log("loginpagehandler");
   return (
     <>
       <form className="pt-5 flex-grow-1" onSubmit={submitHandler}>
@@ -92,6 +92,16 @@ export const LoginPage = () => {
           </button>
         </div>
       </form>
+
+      {/* Mostrar mensaje de carga si está en proceso de login */}
+      {isLoading && (
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Cargando...</span>
+          </div>
+          <p className="ms-2">Estamos validando tus datos...</p>
+        </div>
+      )}
     </>
   );
 };
