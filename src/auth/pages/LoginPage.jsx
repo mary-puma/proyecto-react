@@ -73,7 +73,7 @@ export const LoginPage = () => {
         </div>
         <div className="mb-3 d-flex justify-content-center">
           <button type="submit" className="btn btn-primary ">
-            Ingresar
+            Iniciar sesión
           </button>
           {/* Botón de registrarse */}
           <button
@@ -81,7 +81,7 @@ export const LoginPage = () => {
             className="btn btn-secondary mx-2"
             onClick={handleRegisterRedirect}
           >
-            Registrarse
+            Crear una cuenta
           </button>
         </div>
       </form>

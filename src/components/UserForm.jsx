@@ -271,19 +271,6 @@ export const UserForm = () => {
     <form className="pt-5" onSubmit={onSubmit}>
       <div className="mb-3 d-flex justify-content-center">
         <label className="col-sm-4 col-form-label">
-          Email
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            value={email}
-            onChange={onInputChange}
-            required
-          />
-        </label>
-      </div>
-      <div className="mb-3 d-flex justify-content-center">
-        <label className="col-sm-4 col-form-label">
           Nombre
           <input
             type="text"
@@ -303,6 +290,19 @@ export const UserForm = () => {
             className="form-control"
             name="lastName"
             value={lastName}
+            onChange={onInputChange}
+            required
+          />
+        </label>
+      </div>
+      <div className="mb-3 d-flex justify-content-center">
+        <label className="col-sm-4 col-form-label">
+          Email
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            value={email}
             onChange={onInputChange}
             required
           />
@@ -330,7 +330,7 @@ export const UserForm = () => {
           className="btn btn-secondary mx-2"
           onClick={handleLoginRedirect}
         >
-          Iniciar sesion
+          Iniciar sesión
         </button>
       </div>
     </form>
