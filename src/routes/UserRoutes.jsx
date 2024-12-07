@@ -7,6 +7,7 @@ import { UserProvider } from "../auth/context/UserProvider";
 
 //import {useEffect, useState } from "react";
 import { MoviesProvider } from "../context/MoviesProvider";
+import Footer from "../components/Footer";
 
 export const UserRoutes = () => {
   return (

@@ -13,6 +13,7 @@ import { UserRoutes } from "./routes/UserRoutes";
 import { AuthContext } from "./auth/context/AuthContext";
 import { useContext } from "react";
 import { UserProvider } from "./auth/context/UserProvider";
+import Footer from "./components/Footer";
 
 export const App = () => {
   const { login } = useContext(AuthContext);
@@ -35,6 +36,7 @@ export const App = () => {
           )}
         </Routes>
       </UserProvider>
+      <Footer />
     </>
   );
 };
