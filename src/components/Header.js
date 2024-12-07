@@ -25,7 +25,7 @@ function Header() {
           <li className="nav-item">
             <button
               onClick={handlerLogout}
-              className='btn btn-outline-success green-light-btn"'
+              className='btn btn-outline-success text-white green-light-btn"'
             >
               Logout
             </button>
