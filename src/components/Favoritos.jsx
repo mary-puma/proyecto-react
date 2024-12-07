@@ -6,7 +6,7 @@ function Favoritos() {
   const { favorites, addOrRemoveFromFav } = useContext(MoviesContext);
   console.log("favoritos");
 
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   useEffect(() => {
     console.log("Token en favoritos:", sessionStorage.getItem("token"));
   }, []);
