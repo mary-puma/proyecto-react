@@ -19,7 +19,7 @@ function Header() {
   }
   return (
     <header>
-      <h1 className="h4 mb-0 text-white">{pageTitle}</h1>
+      <h1 className="h4 text-white">{pageTitle}</h1>
       <nav>
         <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
           <li className="nav-item">
