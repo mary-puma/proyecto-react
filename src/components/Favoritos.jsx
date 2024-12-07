@@ -6,11 +6,22 @@ function Favoritos() {
   const { favorites, addOrRemoveFromFav } = useContext(MoviesContext);
   console.log("favoritos");
 
-  let token = sessionStorage.getItem("token");
+  /*let token = sessionStorage.getItem("token");
   useEffect(() => {
     console.log("Token en favoritos:", sessionStorage.getItem("token"));
+  }, []);*/
+
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    setToken(storedToken);
   }, []);
 
+  if (token === null) {
+    // Mientras el token se carga, puedes mostrar un mensaje de carga o algo similar.
+    return <div>Cargando...</div>;
+  }
   console.log("token" + token);
   if (token === null) return <Navigate to="/" />;
   return (
