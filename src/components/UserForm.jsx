@@ -237,12 +237,15 @@ export const UserForm = () => {
 
     try {
       // Petición POST al servidor
-      const response = await axios.post("http://localhost:8080/auth/register", {
-        lastName,
-        firstName,
-        password,
-        email,
-      });
+      const response = await axios.post(
+        "https://registro-login.onrender.com/auth/register",
+        {
+          lastName,
+          firstName,
+          password,
+          email,
+        }
+      );
 
       // Manejo de éxito
       Swal.fire("Éxito", "Usuario registrado correctamente.", "success");
