@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { MoviesContext } from "../context/MoviesContext";
+import { useEffect, useState } from "react";
 function Favoritos() {
   const { favorites, addOrRemoveFromFav } = useContext(MoviesContext);
   console.log("favoritos");
 
   let token = localStorage.getItem("token");
+  useEffect(() => {
+    console.log("Token en localStorage:", localStorage.getItem("token"));
+  }, []);
+
   console.log("token" + token);
   if (token === null) return <Navigate to="/" />;
   return (
