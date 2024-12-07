@@ -23,7 +23,6 @@ function Favoritos() {
   if (token === null) return <Navigate to="/" />;
   return (
     <>
-      <h5>Sección de Favoritos</h5>
       <div className="row">
         {favorites.map((oneMovie, idx) => {
           return (
