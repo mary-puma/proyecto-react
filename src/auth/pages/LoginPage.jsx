@@ -45,7 +45,7 @@ export const LoginPage = () => {
   };
   return (
     <>
-      <form className="pt-5" onSubmit={submitHandler}>
+      <form className="pt-5 flex-grow-1" onSubmit={submitHandler}>
         <div className="mb-3 d-flex justify-content-center">
           <label className="col-sm-4 col-form-label ">
             Email
