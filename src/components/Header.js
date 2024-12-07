@@ -18,35 +18,37 @@ function Header() {
       pageTitle = "Mi Aplicación de Películas";
   }
   return (
-    <header>
-      <h1 className="h4 text-white">{pageTitle}</h1>
-      <nav>
-        <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
-          <li className="nav-item">
-            <Link className="nav-link text-white" to={"/"}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to={"/listado"}>
-              Listado
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white " to={"/favoritos"}>
-              Favoritos
-            </Link>
-          </li>
-          <li className="nav-item">
-            <button
-              onClick={handlerLogout}
-              className='btn btn-outline-success text-white green-light-btn"'
-            >
-              Logout
-            </button>
-          </li>
-        </ul>
-      </nav>
+    <header className="bg-primary">
+      <div className="container text-center py-3">
+        <h1 className="h4 text-white">{pageTitle}</h1>
+        <nav>
+          <ul className="nav justify-content-end p-3 mb-2 bg-primary ">
+            <li className="nav-item">
+              <Link className="nav-link text-white" to={"/"}>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to={"/listado"}>
+                Listado
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white " to={"/favoritos"}>
+                Favoritos
+              </Link>
+            </li>
+            <li className="nav-item">
+              <button
+                onClick={handlerLogout}
+                className='btn btn-outline-success text-white green-light-btn"'
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }
