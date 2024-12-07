@@ -21,7 +21,7 @@ export const App = () => {
   console.log(login.isAuth);
 
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100">
       <UserProvider>
         <Routes>
           {login.isAuth ? (
@@ -37,6 +37,6 @@ export const App = () => {
         </Routes>
       </UserProvider>
       <Footer />
-    </>
+    </div>
   );
 };
