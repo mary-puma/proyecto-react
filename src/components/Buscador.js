@@ -24,13 +24,15 @@ function Buscador() {
           `https://omdbapi.com/?apikey=7a5b7d31&s=${keyword}`
         );
 
-        if (response.data.results.length > 0) {
-          // Si hay resultados, redirige a la página de listado
+        const movieList = response.data.Search; // Accede al atributo Search donde están las películas
+
+        if (movieList && movieList.length > 0) {
+          // Si hay resultados, redirige a la página de listado con el keyword
           navigate(`/listado?keyword=${keyword}`);
         } else {
           // Si no hay resultados
           sweetalert2.fire({
-            html: `<h3>No se encontraron películas. Por favor, intenta con otra búsqueda.</h3>`,
+            html: `<h3>No se encontraron películas con el término "${keyword}". Intenta con otra búsqueda.</h3>`,
           });
         }
       } catch (error) {
