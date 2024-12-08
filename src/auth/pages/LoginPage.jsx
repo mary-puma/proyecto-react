@@ -37,18 +37,11 @@ export const LoginPage = () => {
 
     try {
       await handlerLogin({ username, password });
+      setIsLoading(false);
     } catch (error) {
       setIsLoading(false); // Detiene la carga si hay un error
     }
   };
-
-  useEffect(() => {
-    if (login.isAuth) {
-      setIsLoading(false); // Detiene el mensaje de carga después de redirigir
-      console.log("Redirigiendo a listado desde LoginPage...");
-      navigate("/listado");
-    }
-  }, [login.isAuth, navigate]);
 
   const handleRegisterRedirect = () => {
     navigate("/register");

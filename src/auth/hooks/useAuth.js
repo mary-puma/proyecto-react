@@ -39,7 +39,7 @@ export const useAuth = () => {
       console.log("nnn");
       sessionStorage.setItem("token", `Bearer ${token}`);
       console.log("Token en sessionStorage:", sessionStorage.getItem("token"));
-      //navigate("/listado");
+      navigate("/listado");
       console.log("hola");
     } catch (error) {
       if (error.response?.status === 401) {
