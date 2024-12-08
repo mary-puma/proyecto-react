@@ -42,12 +42,13 @@ export const LoginPage = () => {
     }
   };
 
-  // Ya no es necesario este useEffect ya que la redirección está manejada por el hook `useAuth`
-  // useEffect(() => {
-  //   if (login.isAuth) {
-  //     setIsLoading(false); // Detiene el mensaje de carga después de redirigir
-  //   }
-  // }, [login.isAuth]);
+  useEffect(() => {
+    if (login.isAuth) {
+      setIsLoading(false); // Detiene el mensaje de carga después de redirigir
+      console.log("Redirigiendo a listado desde LoginPage...");
+      navigate("/listado");
+    }
+  }, [login.isAuth, navigate]);
 
   const handleRegisterRedirect = () => {
     navigate("/register");
