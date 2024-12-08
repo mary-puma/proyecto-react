@@ -20,7 +20,7 @@ function Footer() {
           </Link>
         </li>
       </ul>
-      <p className="mb-0">&copy; 2023 Mary Puma</p>
+      <p className="mb-0">&copy; 2024 Mary Puma</p>
     </footer>
   );
 }

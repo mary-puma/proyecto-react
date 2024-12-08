@@ -102,7 +102,7 @@ export const LoginPage = () => {
       )}
 
       {/* Cuadro informativo de credenciales de prueba */}
-      <div className="alert alert-info mt-4" role="alert">
+      <div className="alert alert-info px-3 py-0 mb-0" role="alert">
         <h4 className="alert-heading">Credenciales de prueba</h4>
         <p>
           Para probar el inicio de sesión, puedes usar las siguientes
