@@ -38,9 +38,14 @@ export const LoginPage = () => {
       setIsLoading(false);
       return;
     }
-    handlerLogin({ username, password });
-    console.log("loginpagehandler");
-    //setIsLoading(false);
+    
+    try {
+      handlerLogin({ username, password });
+    } catch (error) {
+      setIsLoading(false); // Detiene la carga si hay un error
+    }
+  };
+    //handlerLogin({ username, password });
 
     setLoginForm(initialLoginForm);
   };
