@@ -39,13 +39,7 @@ export const LoginPage = () => {
       return;
     }
 
-    try {
-      handlerLogin({ username, password });
-    } catch (error) {
-      setIsLoading(false); // Detiene la carga si hay un error
-    }
-
-    //handlerLogin({ username, password });
+    handlerLogin({ username, password });
 
     setLoginForm(initialLoginForm);
   };
@@ -106,6 +100,24 @@ export const LoginPage = () => {
           <p className="ms-2">Estamos validando tus datos...</p>
         </div>
       )}
+
+      {/* Cuadro informativo de credenciales de prueba */}
+      <div className="alert alert-info mt-4" role="alert">
+        <h4 className="alert-heading">Credenciales de prueba</h4>
+        <p>
+          Para probar el inicio de sesión, puedes usar las siguientes
+          credenciales o registrarte:
+        </p>
+        <ul>
+          <li>
+            <strong>Email:</strong> mary@test.com
+          </li>
+          <li>
+            <strong>Password:</strong> 1234
+          </li>
+        </ul>
+        <hr />
+      </div>
     </>
   );
 };
