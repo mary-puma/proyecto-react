@@ -38,13 +38,13 @@ export const LoginPage = () => {
       setIsLoading(false);
       return;
     }
-    
+
     try {
       handlerLogin({ username, password });
     } catch (error) {
       setIsLoading(false); // Detiene la carga si hay un error
     }
-  };
+
     //handlerLogin({ username, password });
 
     setLoginForm(initialLoginForm);
