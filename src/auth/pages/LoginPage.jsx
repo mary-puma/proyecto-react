@@ -13,40 +13,42 @@ const initialLoginForm = {
 };
 
 export const LoginPage = () => {
-  const { handlerLogin, login } = useAuth();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  console.log("loginPage");
+  const navigate = useNavigate(); // Inicializa el hook para la redirección
+  const { handlerLogin } = useContext(AuthContext);
+
+  const [loginForm, setLoginForm] = useState(initialLoginForm);
+  const { username, password } = loginForm;
 
   const onInputChange = ({ target }) => {
     const { name, value } = target;
-    if (name === "username") setUsername(value);
-    if (name === "password") setPassword(value);
+    setLoginForm({
+      ...loginForm,
+      [name]: value,
+    });
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-
-    if (username === "" || password === "") {
-      Swal.fire("Los campos no pueden estar vacíos");
-      return;
-    }
-
     setIsLoading(true); // Muestra el mensaje de carga
 
-    try {
-      await handlerLogin({ username, password });
+    if (username === "" || password === "") {
+      Swal.fire("Los campos no pueden estar vacios");
       setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false); // Detiene la carga si hay un error
+      return;
     }
+    handlerLogin({ username, password });
+    console.log("loginpagehandler");
+    //setIsLoading(false);
+
+    setLoginForm(initialLoginForm);
   };
 
+  // Función para redirigir a la página de registro
   const handleRegisterRedirect = () => {
-    navigate("/register");
+    navigate("/register"); // Ruta donde está tu página de registro
   };
-
   return (
     <>
       <form className="pt-5 flex-grow-1" onSubmit={submitHandler}>
